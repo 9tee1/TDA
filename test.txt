@@ -1,0 +1,4 @@
+red, tomatoes
+green, watermelon
+yellow, lemon
+purple, grape
