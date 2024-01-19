@@ -1,0 +1,57 @@
+def adventureGame():
+  # Define the rooms and their descriptions
+  rooms = {
+    "hallway": "You are in a dark hallway. There are doors to the north and east.",
+    "bedroom": "You are in a cozy bedroom. There is a bed and a window.",
+    "kitchen": "You are in a spacious kitchen. There is a table and a fridge.",
+    "garden": "You are in a beautiful garden. There are flowers and trees.",
+    "bathroom": "You are in a clean bathroom. There is a sink and a toilet.",
+    "living room": "You are in a comfortable living room. There is a sofa and a TV."
+  }
+  # Define the available directions in each room
+  directions = {
+    "hallway": ["north", "east"],
+    "bedroom": ["west"],
+    "kitchen": ["north", "east", "south"],
+    "garden": ["west"],
+    "bathroom": ["south"],
+    "living room": ["west"]
+  }
+  # Define the starting room
+  currentRoom = "hallway"
+  print("Welcome to the Adventure Game!")
+  while True:
+    # Print the current room description
+    print("\n" + rooms[currentRoom])
+    # Prompt for user input
+    print("Where do you want to go?")
+    direction = input("Enter a direction: ")
+    # Check if the direction is valid
+    if direction in directions[currentRoom]:
+      if currentRoom == "hallway" and direction == "north":
+        currentRoom = "bedroom"
+      elif currentRoom == "hallway" and direction == "east":
+        currentRoom = "kitchen"
+      elif currentRoom == "bedroom" and direction == "west":
+        currentRoom = "hallway"
+      elif currentRoom == "kitchen" and direction == "north":
+        currentRoom = "garden"
+      elif currentRoom == "kitchen" and direction == "east":
+        currentRoom = "bathroom"
+      elif currentRoom == "kitchen" and direction == "south":
+        currentRoom = "hallway"
+      elif currentRoom == "garden" and direction == "west":
+        currentRoom = "kitchen"
+      elif currentRoom == "bathroom" and direction == "south":
+        currentRoom = "kitchen"
+      elif currentRoom == "living room" and direction == "west":
+        currentRoom = "hallway"
+    else:
+      print("You can't move further in this direction.")
+
+
+
+
+
+
+
