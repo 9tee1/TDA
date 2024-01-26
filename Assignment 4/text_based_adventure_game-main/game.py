@@ -2,7 +2,6 @@ from typing import Union
 from game_data import list_of_positions, found_cat, starting_position
 from game_utils import get_directions, backtracking_required, check_room, check_is_position_last, check_permission
 
-# this function will take the user direction and if the direction is from the dict then if will return direction
 def get_direction(user_input: str, position: str) -> Union[None, str]:
     directions = get_directions(position)
     valid_directions = [directions[direction] for direction in user_input if direction in directions]
@@ -12,7 +11,6 @@ def get_direction(user_input: str, position: str) -> Union[None, str]:
         print("Invalid direction entered")
         return None
 
-# this function will check if the user has found the cat and return if the cat is found
 def find_cat(position: str) -> Union[None, bool]:
     global found_cat
     cat_in_room = check_room(position)
@@ -20,7 +18,6 @@ def find_cat(position: str) -> Union[None, bool]:
         print("you found the cat")
         found_cat = True
 
-# once the condition is met where they found the cat the message will changed
 def give_instructions(question: str, position: str) -> str:
     if backtracking_required(position, found_cat):
         response = input('There is no way out from here. Please go back! Choose a direction to escape: N, E, S or E ')
@@ -28,7 +25,6 @@ def give_instructions(question: str, position: str) -> str:
         response = input(question)
     return response
 
-# The recursive function will keep calling itself until the specified condition is met
 def get_position(position: str = starting_position) -> None:
 
     keep_playing = check_is_position_last(position)
